@@ -1,0 +1,34 @@
+body
+{
+  background-color: #202020;
+  color: #fff;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+div#wrapper
+{
+  margin: 0;
+  padding: 0;
+  height: 250px;
+  width: 300px;
+  overflow-y: auto;
+}
+
+ul#repos
+{
+  list-style-type: none;
+  padding-left: 0;
+  width: 100%;
+}
+
+ul#repos > li
+{
+  padding: 2px;
+  margin-bottom: 5px;
+}
+
+ul#repos > li:nth-child(2n)
+{
+  background-color: #585858;
+}

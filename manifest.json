@@ -1,0 +1,22 @@
+{
+  "name": "Github Feed Modifier",
+  "version": "0.1.0",
+  "description": "Only allows notification types that you want from projects you are interested into your gitHub stream.",
+  "background_page": "html/background.html",
+  "content_scripts": [{
+    "matches": [
+      "https://github.com/"
+    ],
+    "js": [ 
+      "vendor/jquery.min.js",
+      "js/content_script.js"
+    ]
+  }],
+  "browser_action": {
+    "default_title": "ghFeedMod",
+    "default_popup": "html/popup.html"
+  },
+  "permissions": [
+    "https://github.com/api/v2/json/*"
+  ]
+}

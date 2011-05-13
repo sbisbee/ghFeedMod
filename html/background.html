@@ -1,0 +1,34 @@
+<script src="/vendor/jquery.min.js"></script>
+<script>
+var user = {
+  name: null
+};
+
+function onError(data)
+{
+  console.log(data);
+}
+
+chrome.extension.onRequest.addListener(function(req, sender, callback) {
+  switch(req.action)
+  {
+    case 'setUser':
+      callback(user.name = req.username);
+      break;
+
+    case 'getRepositories':
+      $.ajax({
+        url: 'https://github.com/api/v2/json/repos/watched/'+user.name,
+        type: 'get',
+        dataType: 'json'
+      }).success(function(data) {
+        callback(data.repositories);
+      }).error(function(jqxhr) {
+        onError(jqxhr.responseText);
+        callback(jqxhr);
+      });
+
+      break;
+  }
+});
+</script>
